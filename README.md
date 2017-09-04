@@ -1,5 +1,5 @@
 # Micro API Server
-Template for API Server for Microservices using Koa with decorators and MongoDB
+Template for API Server specifically to build Microservices using Koa with decorators and MongoDB
 
 #### It uses
 1. Koa, using rest generator class 
