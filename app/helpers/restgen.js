@@ -86,11 +86,13 @@ export class RestGen {
    */
   generate () {
     var self = this
-    router.get(`/${this.path}`, this.find.bind(this))
-    router.get(`/${this.path}/:id`, this.findOne.bind(this))
-    router.post(`/${this.path}`, body, this.create.bind(this))
-    router.put(`/${this.path}/:id`, body, this.update.bind(this))
-    router.delete(`/${this.path}/:id`, this.remove.bind(this))
+    if (this.model) {
+      router.get(`/${this.path}`, this.find.bind(this))
+      router.get(`/${this.path}/:id`, this.findOne.bind(this))
+      router.post(`/${this.path}`, body, this.create.bind(this))
+      router.put(`/${this.path}/:id`, body, this.update.bind(this))
+      router.delete(`/${this.path}/:id`, this.remove.bind(this))
+    }
     let list = Object.getOwnPropertyNames(Object.getPrototypeOf(this)).filter(f => {
       if (typeof (self[f]) === 'function') {
         return f
@@ -101,22 +103,27 @@ export class RestGen {
         case 'constructor':
         case 'route':
           break
+        case 'find':
+          router[fun](`/${this.path}`, this[fun].bind(this))
+          break
+        case 'post':
+        case 'put':
         case 'patch':
-          router.patch(`/${this.path}`, body, this.patch.bind(this))
+        case 'delete':
+          router[fun](`/${this.path}`, body, this[fun].bind(this))
           break
         default:
-          let route = this.routes[fun] ? this.routes[fun] : {
+          let route = this.routes && this.routes[fun] ? this.routes[fun] : {
             method: fun.includes('post') ? 'post' : fun.includes('put') ? 'put' : 'get',
             path: fun
           }
           route.path = `/${this.path}/${route.path}`
-          console.log(route)
           switch (route.method) {
             case 'post':
-              router.post(`${route.path}`, body, this[fun].bind(this))
-              break
             case 'put':
-              router.put(`${route.path}`, body, this[fun].bind(this))
+            case 'patch':
+            case 'delete':
+              router[route.method](`${route.path}`, body, this[fun].bind(this))
               break
             default:
               router.get(`${route.path}`, this[fun].bind(this))
