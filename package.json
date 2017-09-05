@@ -1,7 +1,7 @@
 {
-  "name": "naomifauxapi",
+  "name": "node-api-server",
   "version": "1.0.0",
-  "description": "NaomiFaux website API Server",
+  "description": "small server for microservices",
   "main": "index.js",
   "scripts": {
     "dev": "backpack",
