@@ -1,20 +1,20 @@
 {
-  "name": "node-api-server",
-  "version": "1.0.0",
-  "description": "small server for microservices",
+  "name": "microback-starter",
+  "version": "0.0.1",
+  "description": "Template for microservice using microback",
   "main": "index.js",
   "scripts": {
-    "dev": "backpack",
-    "start": "node index.js",
+    "start": "microback",
     "test": "ava -v",
-    "test:cover": "nyc ava --verbose"
+    "test:unit": "ava -v tests/unit/*.js",
+    "test:e2e": "ava -v tests/e2e/*.js"
   },
-  "author": "",
+  "author": "Sirajul",
   "license": "ISC",
   "ava": {
     "files": [
-      "tests/unit/*.js",
-      "tests/e2e/*.js"
+      "tests/e2e/*.js",
+      "tests/unit/*.js"
     ],
     "require": [
       "babel-register"
@@ -22,33 +22,10 @@
     "babel": "inherit"
   },
   "dependencies": {
-    "dotenv": "^4.0.0",
-    "jsonwebtoken": "^7.4.1",
-    "kcors": "2",
-    "koa": "^2.3.0",
-    "koa-body": "^2.3.0",
-    "koa-jwt": "^3.2.2",
-    "koa-router": "^7.2.1",
-    "moment": "^2.18.1",
-    "mongoose": "^4.11.8",
-    "uws": "^8.14.0"
+    "microback": "^0.0.1"
   },
   "devDependencies": {
     "ava": "^0.22.0",
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-module-resolver": "^2.7.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "backpack-core": "^0.4.2",
-    "eslint": "^4.3.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-html": "^3.1.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "nodemon": "^1.11.0",
-    "nyc": "^11.1.0",
     "supertest": "^3.0.0"
   }
 }

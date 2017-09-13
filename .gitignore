@@ -1,8 +1,5 @@
-node_modules
-.nuxt
-dist
-npm-debug.log
+.vscode
 .DS_Store
-.env
+node_modules
 build
-.nyc_output
+.env

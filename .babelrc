@@ -1,4 +1,4 @@
-{  
+{
   "presets": [
     "@ava/stage-4",
     "@ava/transform-test-files"
@@ -14,7 +14,7 @@
         ],
         "alias": {
           "~": "./",
-          "helper": "./app/helpers",
+          "logic": "./app/logic",
           "model": "./app/models"
         }
       }
