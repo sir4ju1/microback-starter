@@ -22,7 +22,7 @@
     "babel": "inherit"
   },
   "dependencies": {
-    "microback": "^0.0.1"
+    "microback": "https://github.com/sir4ju1/microback.git"
   },
   "devDependencies": {
     "ava": "^0.22.0",

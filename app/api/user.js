@@ -22,7 +22,14 @@ class UserApi extends RestGen {
   async login (ctx) {
     const body = ctx.request.body
     const token = await auth.login(body, User)
-    ctx.body = token
+    ctx.body = { success: true, data: token }
+  }
+  @route('post', 'image/upload')
+  @noauth()
+  async upload (ctx) {
+    const body = ctx.request.body
+    console.log(body)
+    ctx.body = { success: true }
   }
 }
 
