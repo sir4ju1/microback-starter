@@ -1,6 +1,6 @@
 {
   "name": "microback-starter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Template for microservice using microback",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,9 @@
     "babel": "inherit"
   },
   "dependencies": {
-    "microback": "https://github.com/sir4ju1/microback.git"
+    "microback": "latest",
+    "sharp": "^0.18.4",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "ava": "^0.22.0",
