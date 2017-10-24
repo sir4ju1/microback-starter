@@ -4,7 +4,7 @@
   "description": "Template for microservice using microback",
   "main": "index.js",
   "scripts": {
-    "start": "microback",
+    "dev": "microback",
     "test": "ava -v",
     "test:unit": "ava -v tests/unit/*.js",
     "test:e2e": "ava -v tests/e2e/*.js"
